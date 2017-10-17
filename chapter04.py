@@ -25,6 +25,7 @@ print(cday)  # 2017-10-17 16:20:20
 # datetime转换为str
 print(now.strptime('%a,%b %d %H:%M'))  # Tue,Oct 17 16:22
 
+
 # collections模块      集合类
 
 '''
@@ -61,5 +62,21 @@ dd['key1'] = 'abc'
 print(dd['key1'], dd['key2'])  # abc  123
 
 '''
+使用dict时，Key是无序的。
+在对dict做迭代时，我们无法确定Key的顺序。
+如果要保持Key的顺序，可以用OrderedDict
+'''
+from collections import OrderedDict
+
+d = dict([('a', 1), ('b', 2), ('c', 3)])
+od = OrderedDict([('a', 1), ('b', 2), ('c', 3)])
 
 '''
+Counter是一个简单的计数器，例如，统计字符出现的个数
+'''
+from collections import Counter
+
+count = Counter()
+for i in 'hello':
+    count[i] += 1
+print(count)  # Counter({'l': 2, 'h': 1, 'e': 1, 'o': 1})
